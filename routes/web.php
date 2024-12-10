@@ -7,4 +7,6 @@ Route::get('/', [AuthController::class, 'login']);
 
 Route::get('/register', [AuthController::class, 'register']);
 
+Route::post('/register', [AuthController::class, 'registerStore']);
+
 Route::get('/forgot-password', [AuthController::class, 'forgotPassword']);

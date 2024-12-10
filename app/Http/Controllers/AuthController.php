@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class AuthController extends Controller
 {
@@ -18,6 +21,24 @@ class AuthController extends Controller
         // die();
         $data['metaTitle'] = 'Register';
         return view('auth.register', $data);
+    }
+
+    public function registerStore(Request $request) {
+        // dd($request->all());
+        $save = $request->validate([
+            'name' => 'required',
+            'email' => 'required | unique:users',
+            'password' => 'required | min:6',
+        ]);
+
+        $save = new User;
+        $save->name = trim($request->name);
+        $save->email = trim($request->email);
+        $save->password = Hash::make($request->password);
+        $save->remember_token = Str::random(50);
+        $save->save();
+
+        return redirect('/')->with('success', 'Registration Successfully.');
     }
 
     public function forgotPassword() {
