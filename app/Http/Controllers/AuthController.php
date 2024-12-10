@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
@@ -14,6 +15,19 @@ class AuthController extends Controller
         // die();
         $data['metaTitle'] = 'Login';
         return view('auth.login', $data);
+    }
+
+    public function loginStore(Request $request) {
+        // dd($request->all());
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password], true)) {
+            if (Auth::user()->is_role == '1') {
+                return redirect()->intended('admin/dashboard');
+            } else {
+                return redirect('/')->with('error', 'Login Failed.');
+            }
+        } else {
+            return redirect()->back()->with('error', 'Please Enter Your Correct Information.');
+        }
     }
 
     public function register() {
