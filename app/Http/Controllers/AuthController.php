@@ -61,4 +61,9 @@ class AuthController extends Controller
         $data['metaTitle'] = 'Forgot Password';
         return view('auth.forgotpassword', $data);
     }
+
+    public function logout() {
+        Auth::logout();
+        return redirect(url('/'));
+    }
 }
