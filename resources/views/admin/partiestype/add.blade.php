@@ -26,12 +26,13 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form class="form-horizontal">
+                        <form class="form-horizontal" action="{{ url('admin/partiesType/add') }}" method="POST">
+                            {{ csrf_field() }}
                             <div class="card-body">
                                 <div class="form-group row">
-                                    <label for="" class="col-sm-2 col-form-label">Enter Parties Type Name</label>
+                                    <label for="" class="col-sm-2 col-form-label">Enter Parties Type Name <span style="color: red;">*</span></label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="" placeholder="Enter Parties Type Name" />
+                                        <input type="text" name="parties_type_name" class="form-control" id="" placeholder="Enter Parties Type Name" required />
                                     </div>
                                 </div>
                             </div>

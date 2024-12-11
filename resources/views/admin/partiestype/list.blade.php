@@ -16,6 +16,7 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
+            @include('_message')
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
@@ -34,26 +35,28 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @forelse ($getRecord as $value)
                                     <tr>
-                                        <td>1.</td>
-                                        <td>Update software</td>
+                                        <td>{{ $value->id }}</td>
+                                        <td>{{ $value->parties_type_name }}</td>
                                         <td>
                                             <a href="" class="btn btn-success btn-sm mr-1"><i class="fas fa-pencil-alt"></i></a>
 
                                             <a href="" class="btn btn-danger btn-sm ml-1"><i class="fas fa-trash"></i></a>
                                         </td>
                                     </tr>
+                                    @empty
+                                    <tr>
+                                        <td colspan="100%">No Record Found....</td>
+                                    </tr>
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer clearfix">
                             <ul class="pagination pagination-sm m-0 float-right">
-                                <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                                {!! $getRecord->appends(Request::except('page'))->links() !!}
                             </ul>
                         </div>
                     </div>
