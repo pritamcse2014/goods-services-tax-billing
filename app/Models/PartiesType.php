@@ -13,7 +13,7 @@ class PartiesType extends Model
 
     static public function getDetails() {
         $return = self::select('parties_type.*')
-                ->orderBy('id', 'desc');;
+                ->orderBy('id', 'desc');
         $return = $return->paginate(10);
         return $return;
     }

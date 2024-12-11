@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Parties;
 use App\Models\PartiesType;
 use Illuminate\Http\Request;
 
@@ -69,7 +70,8 @@ class PartiesTypeController extends Controller
     public function partiesList() {
         // echo "Parties List";
         // die();
-        return view('admin.parties.list');
+        $data['getRecord'] = Parties::getDetails();
+        return view('admin.parties.list', $data);
     }
 
     public function partiesAdd() {
@@ -77,5 +79,22 @@ class PartiesTypeController extends Controller
         // die();
         $data['getPartiesType'] = PartiesType::get();
         return view('admin.parties.add', $data);
+    }
+
+    public function partiesStore(Request $request) {
+        // dd($request->all());
+        $save = new Parties;
+        $save->parties_type_id = trim($request->parties_type_id);
+        $save->full_name = trim($request->full_name);
+        $save->phone_no = trim($request->phone_no);
+        $save->address = trim($request->address);
+        $save->account_holder_name = trim($request->account_holder_name);
+        $save->account_no = trim($request->account_no);
+        $save->bank_name = trim($request->bank_name);
+        $save->ifsc_code = trim($request->ifsc_code);
+        $save->branch_address = trim($request->branch_address);
+        $save->save();
+        
+        return redirect('admin/parties')->with('success', 'Parties Create Successfully.');
     }
 }
