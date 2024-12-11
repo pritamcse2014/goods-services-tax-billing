@@ -40,9 +40,9 @@
                                         <td>{{ $value->id }}</td>
                                         <td>{{ $value->parties_type_name }}</td>
                                         <td>
-                                            <a href="" class="btn btn-success btn-sm mr-1"><i class="fas fa-pencil-alt"></i></a>
+                                            <a href="{{ url('admin/partiesType/edit/' .$value->id) }}" class="btn btn-success btn-sm mr-1"><i class="fas fa-pencil-alt"></i></a>
 
-                                            <a href="" class="btn btn-danger btn-sm ml-1"><i class="fas fa-trash"></i></a>
+                                            <a href="{{ url('admin/partiesType/delete/' .$value->id) }}" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger btn-sm ml-1"><i class="fas fa-trash"></i></a>
                                         </td>
                                     </tr>
                                     @empty

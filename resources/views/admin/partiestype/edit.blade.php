@@ -1,0 +1,54 @@
+@extends('admin.layouts.app')
+@section('content')
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Edit Parties Type</h1>
+                </div>
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-12">
+                    <!-- Horizontal Form -->
+                    <div class="card card-info">
+                        <div class="card-header">
+                            <h3 class="card-title">Edit Parties Type</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <!-- form start -->
+                        <form class="form-horizontal" action="{{ url('admin/partiesType/edit/' .$getRecord->id) }}" method="POST">
+                            {{ csrf_field() }}
+                            <div class="card-body">
+                                <div class="form-group row">
+                                    <label for="" class="col-sm-2 col-form-label">Enter Parties Type Name <span style="color: red;">*</span></label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="parties_type_name" value="{{ $getRecord->parties_type_name }}" class="form-control" id="" placeholder="Enter Parties Type Name" required />
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-info">Update</button>
+                                <a href="{{ url('admin/partiesType') }}" class="btn btn-secondary float-right">Cancel</a>
+                            </div>
+                            <!-- /.card-footer -->
+                        </form>
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+        </div>
+
+</div>
+
+@endsection

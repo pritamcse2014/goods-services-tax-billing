@@ -17,4 +17,9 @@ class PartiesType extends Model
         $return = $return->paginate(10);
         return $return;
     }
+
+    // System - 2 (Security)
+    // static public function singleGetEdit($id) {
+    //     return self::find($id);
+    // }
 }

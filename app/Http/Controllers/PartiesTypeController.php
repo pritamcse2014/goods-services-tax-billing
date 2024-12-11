@@ -32,4 +32,37 @@ class PartiesTypeController extends Controller
 
         return redirect('admin/partiesType')->with('success', 'Parties Name Create Successfully.');
     }
+
+    public function partiesTypeEdit($id) {
+        // echo $id;
+        // die();
+        // dd($id);
+        // System - 1
+        $data['getRecord'] = PartiesType::find($id);
+        // System - 2 (Security)
+        // $data['getRecord'] = PartiesType::singleGetEdit($id);
+        return view('admin.partiestype.edit', $data);
+    }
+
+    public function partiesTypeUpdate(Request $request, $id) {
+        // dd($request->all());
+        $save = $request->validate([
+            'parties_type_name' => 'required'
+        ]);
+
+        $save = PartiesType::find($id);
+        $save->parties_type_name = trim($request->parties_type_name);
+        $save->save();
+
+        return redirect('admin/partiesType')->with('success', 'Parties Name Updated Successfully.');
+    }
+
+    public function partiesTypeDelete($id) {
+        // echo $id;
+        // dd($id);
+        $save = PartiesType::find($id);
+        $save->delete();
+
+        return redirect('admin/partiesType')->with('success', 'Parties Name Deleted Successfully.');
+    }
 }
