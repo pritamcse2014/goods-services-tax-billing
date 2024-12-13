@@ -19,4 +19,9 @@ class Parties extends Model
 
     return $return;
     }
+
+    // System - 2 (Security)
+    // static public function singleGetEdit($id) {
+    //     return self::find($id);
+    // }
 }

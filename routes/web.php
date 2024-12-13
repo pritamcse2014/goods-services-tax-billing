@@ -35,6 +35,12 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/parties/add', [PartiesTypeController::class, 'partiesAdd']);
 
     Route::post('admin/parties/add', [PartiesTypeController::class, 'partiesStore']);
+
+    Route::get('admin/parties/edit/{id}', [PartiesTypeController::class, 'partiesEdit']);
+
+    Route::post('admin/parties/edit/{id}', [PartiesTypeController::class, 'partiesUpdate']);
+
+    Route::get('admin/parties/delete/{id}', [PartiesTypeController::class, 'partiesDelete']);
 });
 
 Route::get('/logout', [AuthController::class, 'logout']);
