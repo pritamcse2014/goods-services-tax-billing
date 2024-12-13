@@ -46,6 +46,8 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/gstBills', [GSTBillsController::class, 'gstBillsList']);
 
     Route::get('admin/gstBills/add', [GSTBillsController::class, 'gstBillsAdd']);
+
+    Route::post('admin/gstBills/add', [GSTBillsController::class, 'gstBillsStore']);
 });
 
 Route::get('/logout', [AuthController::class, 'logout']);
