@@ -73,6 +73,14 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ url('admin/gstBills') }}" class="nav-link @if(Request::segment(2) == 'gstBills') active @endif">
+                        <i class="nav-icon fas fa-user-alt"></i>
+                        <p>
+                            GST Bills
+                        </p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

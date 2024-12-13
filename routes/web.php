@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\GSTBillsController;
 use App\Http\Controllers\PartiesTypeController;
 use Illuminate\Support\Facades\Route;
 
@@ -41,6 +42,10 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('admin/parties/edit/{id}', [PartiesTypeController::class, 'partiesUpdate']);
 
     Route::get('admin/parties/delete/{id}', [PartiesTypeController::class, 'partiesDelete']);
+
+    Route::get('admin/gstBills', [GSTBillsController::class, 'gstBillsList']);
+
+    Route::get('admin/gstBills/add', [GSTBillsController::class, 'gstBillsAdd']);
 });
 
 Route::get('/logout', [AuthController::class, 'logout']);
