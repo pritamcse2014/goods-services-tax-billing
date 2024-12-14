@@ -19,4 +19,8 @@ class GSTBills extends Model
     
         return $return;
     }
+
+    public function getGSTBillsView() {
+        return $this->belongsTo(PartiesType::class, 'parties_type_id');
+    }
 }

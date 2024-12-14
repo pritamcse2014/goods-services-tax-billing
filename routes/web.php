@@ -48,6 +48,14 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/gstBills/add', [GSTBillsController::class, 'gstBillsAdd']);
 
     Route::post('admin/gstBills/add', [GSTBillsController::class, 'gstBillsStore']);
+
+    Route::get('admin/gstBills/edit/{id}', [GSTBillsController::class, 'gstBillsEdit']);
+
+    Route::post('admin/gstBills/edit/{id}', [GSTBillsController::class, 'gstBillsUpdate']);
+
+    Route::get('admin/gstBills/delete/{id}', [GSTBillsController::class, 'gstBillsDelete']);
+
+    Route::get('admin/gstBills/view/{id}', [GSTBillsController::class, 'gstBillsView']);
 });
 
 Route::get('/logout', [AuthController::class, 'logout']);

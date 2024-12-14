@@ -49,7 +49,13 @@
                                         <td>{{ $value->total_amount }}</td>
                                         <td>{{ $value->tax_amount }}</td>
                                         <td>{{ $value->net_amount }}</td>
-                                        <td></td>
+                                        <td>
+                                            <a href="{{ url('admin/gstBills/view/' .$value->id) }}" class="btn btn-primary btn-sm mr-2"><i class="fas fa-eye"></i></a>
+
+                                            <a href="{{ url('admin/gstBills/edit/' .$value->id) }}" class="btn btn-success btn-sm mr-1"><i class="fas fa-pencil-alt"></i></a>
+
+                                            <a href="{{ url('admin/gstBills/delete/' .$value->id) }}" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger btn-sm ml-1"><i class="fas fa-trash"></i></a>
+                                        </td>
                                     </tr>
                                     @endforeach @if (!empty($totalAmount))
                                     <tr>
