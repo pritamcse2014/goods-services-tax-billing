@@ -8,10 +8,10 @@ use Illuminate\Http\Request;
 
 class PartiesTypeController extends Controller
 {
-    public function partiesTypeList() {
+    public function partiesTypeList(Request $request) {
         // echo "Parties Type List";
         // die();
-        $data['getRecord'] = PartiesType::getDetails();
+        $data['getRecord'] = PartiesType::getDetails($request);
         return view('admin.partiestype.list', $data);
     }
 
