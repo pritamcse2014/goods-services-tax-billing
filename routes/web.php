@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GSTBillsController;
+use App\Http\Controllers\MyAccountController;
 use App\Http\Controllers\PartiesTypeController;
 use Illuminate\Support\Facades\Route;
 
@@ -56,6 +57,10 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/gstBills/delete/{id}', [GSTBillsController::class, 'gstBillsDelete']);
 
     Route::get('admin/gstBills/view/{id}', [GSTBillsController::class, 'gstBillsView']);
+
+    Route::get('admin/myAccount', [MyAccountController::class, 'myAccount']);
+
+    Route::post('admin/myAccount/update', [MyAccountController::class, 'myAccountUpdate']);
 });
 
 Route::get('/logout', [AuthController::class, 'logout']);
