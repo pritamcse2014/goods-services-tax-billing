@@ -67,10 +67,10 @@ class PartiesTypeController extends Controller
         return redirect('admin/partiesType')->with('success', 'Parties Name Deleted Successfully.');
     }
 
-    public function partiesList() {
+    public function partiesList(Request $request) {
         // echo "Parties List";
         // die();
-        $data['getRecord'] = Parties::getDetails();
+        $data['getRecord'] = Parties::getDetails($request);
         return view('admin.parties.list', $data);
     }
 
