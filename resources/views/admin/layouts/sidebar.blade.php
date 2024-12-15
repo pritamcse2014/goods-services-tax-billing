@@ -75,7 +75,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ url('admin/gstBills') }}" class="nav-link @if(Request::segment(2) == 'gstBills') active @endif">
-                        <i class="nav-icon fas fa-user-alt"></i>
+                        <i class="nav-icon fas fa-file-invoice"></i>
                         <p>
                             GST Bills
                         </p>

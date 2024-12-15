@@ -8,10 +8,10 @@ use Illuminate\Http\Request;
 
 class GSTBillsController extends Controller
 {
-    public function gstBillsList() {
+    public function gstBillsList(Request $request) {
         // echo "GST Billing List";
         // die();
-        $data['getRecord'] = GSTBills::getDetails();
+        $data['getRecord'] = GSTBills::getDetails($request);
         return view('admin.gstbills.list', $data);
     }
 
