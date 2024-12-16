@@ -79,7 +79,7 @@
                                         <td>{{ date('d-m-Y', strtotime($value->updated_at)) }}</td>
                                         <td>
                                             <a href="{{ url('admin/partiesType/edit/' .$value->id) }}" class="btn btn-success btn-sm mr-1"><i class="fas fa-pencil-alt"></i></a>
-
+                                            <a href="{{ url('admin/partiesType/pdfSingleDownload/' .$value->id) }}" class="btn btn-primary btn-sm ml-1 mr-1"><i class="fas fa-file-pdf"></i></a>
                                             <a href="{{ url('admin/partiesType/delete/' .$value->id) }}" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger btn-sm ml-1"><i class="fas fa-trash"></i></a>
                                         </td>
                                     </tr>

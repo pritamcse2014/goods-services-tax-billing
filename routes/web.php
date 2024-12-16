@@ -34,6 +34,8 @@ Route::group(['middleware' => 'admin'], function () {
 
     Route::get('admin/partiesType/pdfGenerator', [PartiesTypeController::class, 'partiesTypePdfGenerator']);
 
+    Route::get('admin/partiesType/pdfSingleDownload/{id}', [PartiesTypeController::class, 'partiesTypePdfSingleDownload']);
+
     Route::get('admin/parties', [PartiesTypeController::class, 'partiesList']);
 
     Route::get('admin/parties/add', [PartiesTypeController::class, 'partiesAdd']);

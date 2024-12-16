@@ -80,6 +80,15 @@ class PartiesTypeController extends Controller
         return $pdf->download('partiesType.pdf');
     }
 
+    public function partiesTypePdfSingleDownload($id) {
+        $data['getPartiesType'] = PartiesType::find($id);
+        $data['title'] = 'Programming & Web Development Tutorials and Scripts';
+        $data['subtitle'] = 'I am a professional Web Developer (PHP, JS, Laravel, React JS, MySql and API etc), with 1 years + of experience. If you have any website related work then let us know. Should you need any further information do not hesitate to contact me.';
+        $pdf = app('dompdf.wrapper');
+        $pdf->loadView('partiesTypePDFSingle', $data);
+        return $pdf->download('partiesTypeSingle.pdf');
+    }
+
     public function partiesList(Request $request) {
         // echo "Parties List";
         // die();
