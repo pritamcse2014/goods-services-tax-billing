@@ -32,6 +32,8 @@ Route::group(['middleware' => 'admin'], function () {
 
     Route::get('admin/partiesType/delete/{id}', [PartiesTypeController::class, 'partiesTypeDelete']);
 
+    Route::get('admin/partiesType/pdfGenerator', [PartiesTypeController::class, 'partiesTypePdfGenerator']);
+
     Route::get('admin/parties', [PartiesTypeController::class, 'partiesList']);
 
     Route::get('admin/parties/add', [PartiesTypeController::class, 'partiesAdd']);

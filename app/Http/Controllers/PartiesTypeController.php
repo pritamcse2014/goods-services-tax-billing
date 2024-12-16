@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Parties;
 use App\Models\PartiesType;
+use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
 
 class PartiesTypeController extends Controller
@@ -65,6 +66,18 @@ class PartiesTypeController extends Controller
         $save->delete();
 
         return redirect('admin/partiesType')->with('success', 'Parties Name Deleted Successfully.');
+    }
+
+    public function partiesTypePdfGenerator() {
+        $getPartiesType = PartiesType::get();
+        $data = [
+            'title' => 'Welcome to GST Billing.',
+            'date'  => date('d-m-Y'),
+            'parties' => $getPartiesType
+        ];
+        $pdf = app('dompdf.wrapper');
+        $pdf->loadView('partiesTypePDF', $data);
+        return $pdf->download('partiesType.pdf');
     }
 
     public function partiesList(Request $request) {
