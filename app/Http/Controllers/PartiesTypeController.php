@@ -156,4 +156,20 @@ class PartiesTypeController extends Controller
 
         return redirect('admin/parties')->with('success', 'Parties Deleted Successfully.');
     }
+
+    public function partiesPdfGenerator() {
+        // echo "PDF Generator";
+        // die();
+        $getParties = Parties::select('parties.*', 'parties_type.parties_type_name')
+                    ->join('parties_type', 'parties_type.id', '=', 'parties.parties_type_id')
+                    ->get();
+        $data = [
+            'title' => 'Welcome to GST Billing.',
+            'date'  => date('d-m-Y'),
+            'parties' => $getParties
+        ];
+        $pdf = app('dompdf.wrapper');
+        $pdf->loadView('partiesPDF', $data);
+        return $pdf->download('parties.pdf');
+    }
 }

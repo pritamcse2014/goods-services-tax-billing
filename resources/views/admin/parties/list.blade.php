@@ -88,6 +88,7 @@
                         <div class="card-header">
                             <h3 class="card-title">Parties List</h3>
                             <a class="btn btn-primary float-right" href="{{ url('admin/parties/add') }}">Add Parties</a>
+                            <a class="btn btn-success float-right mr-2" href="{{ url('admin/parties/pdfGenerator') }}">PDF Generator</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
