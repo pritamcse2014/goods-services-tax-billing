@@ -50,6 +50,8 @@ Route::group(['middleware' => 'admin'], function () {
 
     Route::get('admin/parties/pdfGenerator', [PartiesTypeController::class, 'partiesPdfGenerator']);
 
+    Route::get('admin/parties/pdfSingleDownload/{id}', [PartiesTypeController::class, 'partiesPdfSingleDownload']);
+
     Route::get('admin/gstBills', [GSTBillsController::class, 'gstBillsList']);
 
     Route::get('admin/gstBills/add', [GSTBillsController::class, 'gstBillsAdd']);

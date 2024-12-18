@@ -49,4 +49,8 @@ class Parties extends Model
     // static public function singleGetEdit($id) {
     //     return self::find($id);
     // }
+
+    public function partiesPdfSingle() {
+        return $this->belongsTo(PartiesType::class, 'parties_type_id');
+    }
 }
