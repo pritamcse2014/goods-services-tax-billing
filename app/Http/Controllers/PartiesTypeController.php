@@ -181,4 +181,9 @@ class PartiesTypeController extends Controller
         $pdf->loadView('partiesPDFSingle', $data);
         return $pdf->download('partiesSingle.pdf');
     }
+
+    public function partiesView($id) {
+        $data['getParties'] = Parties::find($id);
+        return view('admin.parties.view', $data);
+    }
 }
