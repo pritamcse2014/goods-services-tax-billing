@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GSTBillsController;
 use App\Http\Controllers\MyAccountController;
 use App\Http\Controllers\PartiesTypeController;
+use App\Http\Controllers\SettingController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [AuthController::class, 'login']);
@@ -75,6 +76,10 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/myAccount', [MyAccountController::class, 'myAccount']);
 
     Route::post('admin/myAccount/update', [MyAccountController::class, 'myAccountUpdate']);
+
+    Route::get('admin/setting', [SettingController::class, 'adminSetting']);
+
+    Route::post('admin/setting/update', [SettingController::class, 'adminSettingUpdate']);
 });
 
 Route::get('/logout', [AuthController::class, 'logout']);
