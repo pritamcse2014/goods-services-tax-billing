@@ -68,6 +68,8 @@ Route::group(['middleware' => 'admin'], function () {
 
     Route::get('admin/gstBills/view/{id}', [GSTBillsController::class, 'gstBillsView']);
 
+    Route::get('admin/gstBills/pdfGenerator', [GSTBillsController::class, 'gstBillsPdfGenerator']);
+
     Route::get('admin/myAccount', [MyAccountController::class, 'myAccount']);
 
     Route::post('admin/myAccount/update', [MyAccountController::class, 'myAccountUpdate']);

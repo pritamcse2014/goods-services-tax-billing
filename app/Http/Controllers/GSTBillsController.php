@@ -87,4 +87,20 @@ class GSTBillsController extends Controller
         $data['gstBills'] = GSTBills::find($id);
         return view('admin.gstBills.view', $data);
     }
+
+    public function gstBillsPdfGenerator() {
+        // echo "PDF Generator";
+        // die();
+        $getGstBills = GSTBills::select('gst_bills.*', 'parties_type.parties_type_name')
+                    ->join('parties_type', 'parties_type.id', '=', 'gst_bills.parties_type_id')
+                    ->get();
+        $data = [
+            'title' => 'Welcome to GST Billing.',
+            'date'  => date('d-m-Y'),
+            'gstBills' => $getGstBills
+        ];
+        $pdf = app('dompdf.wrapper');
+        $pdf->loadView('gstBillsPDF', $data);
+        return $pdf->download('gstBills.pdf');
+    }
 }

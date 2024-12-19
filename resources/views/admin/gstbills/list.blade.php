@@ -68,6 +68,7 @@
                         <div class="card-header">
                             <h3 class="card-title">GST Bills List</h3>
                             <a class="btn btn-primary float-right" href="{{ url('admin/gstBills/add') }}">Add GST Bills</a>
+                            <a class="btn btn-success float-right mr-2" href="{{ url('admin/gstBills/pdfGenerator') }}">PDF Generator</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
