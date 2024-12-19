@@ -70,6 +70,8 @@ Route::group(['middleware' => 'admin'], function () {
 
     Route::get('admin/gstBills/pdfGenerator', [GSTBillsController::class, 'gstBillsPdfGenerator']);
 
+    Route::get('admin/gstBills/pdfSingleDownload/{id}', [GSTBillsController::class, 'gstBillsPdfSingleDownload']);
+
     Route::get('admin/myAccount', [MyAccountController::class, 'myAccount']);
 
     Route::post('admin/myAccount/update', [MyAccountController::class, 'myAccountUpdate']);

@@ -103,4 +103,13 @@ class GSTBillsController extends Controller
         $pdf->loadView('gstBillsPDF', $data);
         return $pdf->download('gstBills.pdf');
     }
+
+    public function gstBillsPdfSingleDownload($id) {
+        $data['getGstBills'] = GSTBills::find($id);
+        $data['title'] = 'Programming & Web Development Tutorials and Scripts';
+        $data['subtitle'] = 'I am a professional Web Developer (PHP, JS, Laravel, React JS, MySql and API etc), with 1 years + of experience. If you have any website related work then let us know. Should you need any further information do not hesitate to contact me.';
+        $pdf = app('dompdf.wrapper');
+        $pdf->loadView('gstBillsPDFSingle', $data);
+        return $pdf->download('gstBillsSingle.pdf');
+    }
 }
