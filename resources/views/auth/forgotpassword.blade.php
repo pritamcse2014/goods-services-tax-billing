@@ -8,10 +8,11 @@
     <div class="card">
         <div class="card-body login-card-body">
             <p class="login-box-msg">You forgot your password? Here you can easily retrieve a new password.</p>
-
-            <form action="recover-password.html" method="post">
+            @include('_message')
+            <form action="{{ url('forgot-password') }}" method="post">
+                {{ csrf_field() }}
                 <div class="input-group mb-3">
-                    <input type="email" name="email" class="form-control" placeholder="Enter Your Email" />
+                    <input type="email" name="email" class="form-control" placeholder="Enter Your Email" required />
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-envelope"></span>

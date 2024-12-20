@@ -18,6 +18,8 @@ Route::post('/register', [AuthController::class, 'registerStore']);
 
 Route::get('/forgot-password', [AuthController::class, 'forgotPassword']);
 
+Route::post('/forgot-password', [AuthController::class, 'forgotPasswordStore']);
+
 Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/dashboard', [DashboardController::class, 'dashboard']);
 
