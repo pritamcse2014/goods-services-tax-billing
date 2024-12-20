@@ -21,66 +21,50 @@
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
             <div class="row">
-                <div class="col-lg-3 col-6">
+                <div class="col-lg-4 col-6">
                     <!-- small box -->
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3>150</h3>
+                            <h3>{{ !empty($partiesType) ? $partiesType : '0' }}</h3>
 
-                            <p>New Orders</p>
+                            <p>Parties Type</p>
                         </div>
                         <div class="icon">
-                            <i class="ion ion-bag"></i>
+                            <i class="ion ion-person"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="{{ url('admin/partiesType') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
-                <div class="col-lg-3 col-6">
+                <div class="col-lg-4 col-6">
                     <!-- small box -->
                     <div class="small-box bg-success">
                         <div class="inner">
-                            <h3>53<sup style="font-size: 20px;">%</sup></h3>
+                            <h3>{{ !empty($parties) ? $parties : '0' }}</h3>
 
-                            <p>Bounce Rate</p>
+                            <p>Parties</p>
                         </div>
                         <div class="icon">
-                            <i class="ion ion-stats-bars"></i>
+                            <i class="ion ion-person-stalker"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="{{ url('admin/parties') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
-                <div class="col-lg-3 col-6">
+                <div class="col-lg-4 col-6">
                     <!-- small box -->
-                    <div class="small-box bg-warning">
+                    <div class="small-box bg-primary">
                         <div class="inner">
-                            <h3>44</h3>
+                            <h3>{{ !empty($gstBills) ? $gstBills : '0' }}</h3>
 
-                            <p>User Registrations</p>
+                            <p>GST Bills</p>
                         </div>
                         <div class="icon">
-                            <i class="ion ion-person-add"></i>
+                            <i class="ion ion-document-text"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="{{ url('admin/gstBills') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
-                <!-- ./col -->
-                <div class="col-lg-3 col-6">
-                    <!-- small box -->
-                    <div class="small-box bg-danger">
-                        <div class="inner">
-                            <h3>65</h3>
-
-                            <p>Unique Visitors</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-pie-graph"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-                <!-- ./col -->
             </div>
             <!-- /.row -->
         </div>
